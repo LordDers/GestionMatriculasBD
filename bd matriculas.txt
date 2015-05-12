@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS alumnos (
+dni VARCHAR(9) NOT NULL,
+nombre VARCHAR(20),
+apellido VARCHAR(25),
+anyo_inscripcion INTEGER(4),
+ciclo VARCHAR(20),
+PRIMARY KEY(dni)
+);
+
+CREATE TABLE IF NOT EXISTS profersores (
+dni VARCHAR(9) NOT NULL,
+nombre VARCHAR(20),
+apellido VARCHAR(25),
+titulacion VARCHAR(20),
+departamento VARCHAR(20),
+num_profesores INTEGER(3),
+PRIMARY KEY(dni)
+);
+
+CREATE TABLE IF NOT EXISTS asignaturas (
+id_asignatura INTEGER NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(20),
+creditos INTEGER(3),
+dni VARCHAR(9),
+PRIMARY KEY (id_asignatura)
+);
+
+CREATE TABLE IF NOT EXISTS matriculas (
+anyo_matriculacion INTEGER(4),
+precio DOUBLE(4,2),
+nombre VARCHAR(20),
+creditos INTEGER(3),
+dni VARCHAR(9),
+nombre VARCHAR(20),
+apellido VARCHAR(25),
+titulacion VARCHAR(20),
+departamento VARCHAR(20),
+num_profesores INTEGER(3),
+);
+
+
+INSERT INTO `asignaturas` VALUES (NULL, 'asd', 4, '1245678q');
+
+INSERT INTO `profersores` VALUES ('12345678a', 'nombre', 'apeliido', 'titulacion', 'departamento', 4);
+
+SELECT * FROM `profersores` INNER JOIN `asignaturas` ON profersores.dni = asignaturas.dni WHERE profersores.dni = '12345678a';
+
+SELECT profersores.dni, profersores.nombre, asignaturas.nombre FROM `profersores` INNER JOIN `asignaturas` ON profersores.dni = asignaturas.dni WHERE profersores.dni = '12345678a';
