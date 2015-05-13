@@ -1,97 +1,17 @@
-<!DOCTYPE html>
-
-<html>
-<head>
-<title>Gestión de matriculaciones</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="functions.js"> </script>
-</head>
-
-<body>
-<h1 align="center"> Gestión de matriculaciones </h1>
-
-<div align="center">
-	<!--boton mostrar vehiculos-->
-	<fieldset>
-			<legend> Mostrar Vehículos </legend>
-	<form id="mostrar" method="post" action="GestorBD" style="text-align: center">
-		<input name="gestion" hidden="true" type="text" value="mostrar_vehiculos"/>
-		<input type="submit" id="submit" value="Mostrar vehículos";>
-	</form>
-	</fieldset>
-<br/>
-
-	<!--boton busqueda por matricula-->
-	<fieldset>
-		<legend> Buscar Vehículos </legend>
-	<div class="divspoiler">
-		<input type="button" value="Búsqueda por matrícula" onclick="
+		<input type="button" value="Añadir matricula" onclick="
 			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
 				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
-				this.value = 'Ocultar búsqueda'; 
+				this.value = 'Ocultar añadir matricula'; 
 			} else { 
 				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Búsqueda por matrícula'; 
+				this.value = 'Añadir matricula'; 
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="buscar_matricula" method="post" onsubmit="return validacion_busqueda_matricula()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text"  value="buscar_matricula"/> <br>
-			<label> Búsqueda por matrícula: </label>
-			<input name="matricula" type="text" placeholder="4 numeros 3 letras"> </input>
-			<input type="submit" id="submit" value="Buscar">
-		</form>
-	</div></div>
-	</fieldset>
-	<!--boton cerrado-->
-	<br/>
-
-	<!--boton modificar vehiculo estacionado-->
-	<fieldset>
-		<legend> Modificar Vehículos </legend>
-	<div class="divspoiler">
-		<input type="button" value="Modificar coche" onclick="
-			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
-				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
-				this.value = 'Ocultar modificar coche'; 
-			} else { 
-				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Modificar coche'; 
-			}
-		">
-	</div><div><div class="spoiler" style="display: none;">
-		<form name="modificar_vehiculo" method="post" onsubmit="return validacion_modificar_vehiculo()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text" value="modificar_vehiculo"/> <br>
-			<label> Matrícula del vehículo a modificar: </label>
-				<input name="matriculavieja" type="text" placeholder="4 numeros 3 letras" /> <br>
-			<input type="submit" id="submit" value="Modificar">
-		</form>
-		<!--<input type="button" value="Coche" onClick=" window.location.href='mod_coche.html' ">-->
-		<!--<input type="button" value="Moto" onClick=" window.location.href='mod_moto.html' ">-->
-	</div></div>
-	</fieldset>
-	<!--boton cerrado-->
-	<br/>
-
-	<!--boton anadir vehiculo estacionado-->
-	<fieldset>
-		<legend> Añadir Vehículos </legend>
-	<div class="divspoiler">
-		<input type="button" value="Añadir coche" onclick="
-			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
-				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
-				this.value = 'Ocultar añadir coche'; 
-			} else { 
-				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Añadir coche'; 
-			}
-		">
-	</div><div><div class="spoiler" style="display: none;">
-		<form name="anyadir_vehiculo" method="post" onsubmit="return validacion_anadir_vehiculo()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text"  value="anyadir_vehiculo"/>
+		<form name="anyadir_matricula" method="post" onsubmit="return validacion_anadir_matricula()" action="GestorBD"> 
+			<input name="gestion" hidden="true" type="text"  value="anyadir_matricula"/>
 			
-			<!--<h4 style="text-align: center;"> Formulario de añadir coche </h4> <hr/>--> <br>
+			<br>
 			<label> Matrícula: </label>
 				<input name="matricula" type="text" placeholder="4 numeros 3 letras"> </input> <br>
 			<label> Número de ruedas: </label>
@@ -133,7 +53,7 @@
 				<input name="matricula" type="text"  placeholder="4 numeros 3 letras"> </input>
 			<input type="submit" id="submit" value="Borrar">
 		</form>
-	</div></div>
+	</div></div> 
 	</fieldset>
 	<!--boton cerrado-->
 </div> <!-- align center  -->
