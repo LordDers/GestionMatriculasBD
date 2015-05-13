@@ -9,4 +9,44 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Matricular</display-name>
+    <servlet-name>Matricular</servlet-name>
+    <servlet-class>Matricular</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Matricular</servlet-name>
+    <url-pattern>/Matricular</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BuscarAlumno</display-name>
+    <servlet-name>BuscarAlumno</servlet-name>
+    <servlet-class>BuscarAlumno</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarAlumno</servlet-name>
+    <url-pattern>/BuscarAlumno</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Modificar</display-name>
+    <servlet-name>Modificar</servlet-name>
+    <servlet-class>Modificar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Modificar</servlet-name>
+    <url-pattern>/Modificar</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Borrar</display-name>
+    <servlet-name>Borrar</servlet-name>
+    <servlet-class>Borrar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Borrar</servlet-name>
+    <url-pattern>/Borrar</url-pattern>
+  </servlet-mapping>
 </web-app>
