@@ -82,7 +82,7 @@
 				this.value = 'Ocultar añadir matricula'; 
 			} else { 
 				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Añadir matricula'; 
+				this.value = 'Matricular'; 
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
@@ -113,22 +113,22 @@
 
 	<!--boton borrar vehiculo estacionado-->
 	<fieldset>
-		<legend> Borrar Vehículos </legend>
+		<legend> Dar de baja alumno </legend>
 	<div class="divspoiler">
-		<input type="button" value="Borrar vehículo estacionado" onclick="
+		<input type="button" value="Dar de baja alumno" onclick="
 			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
 				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
-				this.value = 'Ocultar borrar vehículo'; 
+				this.value = 'Ocultar dar de baja alumno'; 
 			} else { 
 				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Borrar vehículo estacionado'; 
+				this.value = 'Dar de baja alumno'; 
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="borrar_vehiculo" method="post" onsubmit="return validacion_borrar_vehiculo()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text"  value="borrar_vehiculo"/> <br>
+		<form name="baja_alumno" method="post" onsubmit="return validacion_baja_alumno()" action="GestorBD"> 
+			<input name="gestion" hidden="true" type="text"  value="baja_alumno"/> <br>
 			<label> Matrícula del vehículo a borrar: </label> 
-				<input name="matricula" type="text"  placeholder="4 numeros 3 letras"> </input>
+				<input name="dniAlumno" type="text"  placeholder="8 numero y una letras"> </input>
 			<input type="submit" id="submit" value="Borrar">
 		</form>
 	</div></div>
