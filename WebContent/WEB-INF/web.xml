@@ -49,4 +49,14 @@
     <servlet-name>Borrar</servlet-name>
     <url-pattern>/Borrar</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MostrarAlumnos</display-name>
+    <servlet-name>MostrarAlumnos</servlet-name>
+    <servlet-class>MostrarAlumnos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MostrarAlumnos</servlet-name>
+    <url-pattern>/MostrarAlumnos</url-pattern>
+  </servlet-mapping>
 </web-app>
