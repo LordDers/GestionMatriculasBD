@@ -63,7 +63,7 @@ public class BuscarAlumno extends HttpServlet {
 			
 			String sql;		    
 			System.out.println("Referencia: "+referencia);		     
-			//sql="SELECT * FROM alumnos WHERE dni=''";
+			//sql="SELECT * FROM alumnos WHERE dni='12345678b'";
 			sql="SELECT * FROM alumnos WHERE dni=\""+referencia+"\"";
 			
 			
