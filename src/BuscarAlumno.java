@@ -21,7 +21,7 @@ public class BuscarAlumno extends HttpServlet {
 	
 	private static final String USUARIO="root";
 	private static final String CONTRA="zubiri";
-	static final String URL_BD="jdbc:mysql://localhost/matriculasBD";
+	private static final String URL_BD="jdbc:mysql://localhost/matriculasBD";
 
     /**
      * Default constructor. 
@@ -56,8 +56,9 @@ public class BuscarAlumno extends HttpServlet {
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
 
+			System.out.println("bd "+URL_BD+" usuario "+USUARIO+" contra "+CONTRA);
 			// Open a connection
-			con = DriverManager.getConnection("jdbc:mysql://localhost/matriculasBD",USUARIO,CONTRA);
+			con = DriverManager.getConnection(URL_BD,USUARIO,CONTRA);
 			
 			sentencia = con.createStatement();
 			
