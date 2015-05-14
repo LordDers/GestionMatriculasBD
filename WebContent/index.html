@@ -38,7 +38,7 @@
 		<form name="buscar_alumno" method="post" onsubmit="return validacion_busqueda_alumno()" action="BuscarAlumno"> 
 			<input name="gestion" hidden="true" type="text"  value="buscar_alumno"/> <br>
 			<label> Búsqueda por DNI: </label>
-			<input name="alumno" type="text" placeholder="8 numeros y una letra"> </input>
+			<input name="alumno" type="text" placeholder="DNI: 8 numeros y una letra"/>
 			<input type="submit" id="submit" value="Buscar">
 		</form>
 	</div></div>
@@ -90,19 +90,19 @@
 			
 			<br>
 			<label> Matrícula: </label>
-				<input name="matricula" type="text" placeholder="4 numeros 3 letras"> </input> <br>
+				<input name="matricula" type="text" placeholder="4 numeros 3 letras"/> <br>
 			<label> Número de ruedas: </label>
-				<input name="numruedas" type="text"  value="4"> </input> <br>
+				<input name="numruedas" type="text"  value="4"/>  <br>
 			<label> Vehículo a motor: </label>
 				<input name="motor" type="radio"  value="true"> Sí
 				<input name="motor" type="radio"  value="false"> No <br>
 			<label> Marca del vehículo: </label>
-				<input name="marca" type="text"  placeholder="Marca"> </input> <br>
+				<input name="marca" type="text"  placeholder="Marca"/>  <br>
 			<label> Sistema de cambios automático: </label>
 				<input name="automatico" type="radio"  value="true"> Sí
 				<input name="automatico" type="radio"  value="false"> No <br>
 			<label> Consumo a los 100km: </label>
-				<input name="consumo" type="text"  placeholder="consumo100km"> </input> <br>
+				<input name="consumo" type="text"  placeholder="consumo100km"/>  <br>
 			<input type="submit" id="submit" value="Añadir">
 		</form>
 	</div></div>
@@ -127,7 +127,7 @@
 		<form name="baja_alumno" method="post" onsubmit="return validacion_baja_alumno()" action="GestorBD"> 
 			<input name="gestion" hidden="true" type="text"  value="baja_alumno"/> <br>
 			<label> Dar de baja usuario: </label> 
-				<input name="dniAlumno" type="text"  placeholder="8 numero y una letras"> </input>
+				<input name="dniAlumno" type="text"  placeholder="8 numero y una letras"/>
 			<input type="submit" id="submit" value="Borrar">
 		</form>
 	</div></div>
