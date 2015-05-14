@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <title>Gestión de matriculaciones</title>
@@ -14,32 +13,32 @@
 <div align="center">
 	<!--boton mostrar vehiculos-->
 	<fieldset>
-			<legend> Mostrar Vehículos </legend>
+			<legend> Mostrar alumnos matriculados </legend>
 	<form id="mostrar" method="post" action="GestorBD" style="text-align: center">
-		<input name="gestion" hidden="true" type="text" value="mostrar_vehiculos"/>
-		<input type="submit" id="submit" value="Mostrar vehículos";>
+		<input name="gestion" hidden="true" type="text" value="mostrar_alumnos"/>
+		<input type="submit" id="submit" value="Mostrar alumnos">
 	</form>
 	</fieldset>
 <br/>
 
 	<!--boton busqueda por matricula-->
 	<fieldset>
-		<legend> Buscar Vehículos </legend>
+		<legend> Buscar Alumno </legend>
 	<div class="divspoiler">
-		<input type="button" value="Búsqueda por matrícula" onclick="
+		<input type="button" value="Búsqueda por DNI" onclick="
 			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
 				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
 				this.value = 'Ocultar búsqueda'; 
 			} else { 
 				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Búsqueda por matrícula'; 
+				this.value = 'Búsqueda por DNI'; 
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="buscar_matricula" method="post" onsubmit="return validacion_busqueda_matricula()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text"  value="buscar_matricula"/> <br>
-			<label> Búsqueda por matrícula: </label>
-			<input name="matricula" type="text" placeholder="4 numeros 3 letras"> </input>
+		<form name="buscar_alumno" method="post" onsubmit="return validacion_busqueda_alumno()" action="GestorBD"> 
+			<input name="gestion" hidden="true" type="text"  value="buscar_alumno"/> <br>
+			<label> Búsqueda por DNI: </label>
+			<input name="alumno" type="text" placeholder="8 numeros y una letra"> </input>
 			<input type="submit" id="submit" value="Buscar">
 		</form>
 	</div></div>
@@ -49,49 +48,47 @@
 
 	<!--boton modificar vehiculo estacionado-->
 	<fieldset>
-		<legend> Modificar Vehículos </legend>
+		<legend> Modificar datos alumno</legend>
 	<div class="divspoiler">
-		<input type="button" value="Modificar coche" onclick="
+		<input type="button" value="Modificar datos alumno" onclick="
 			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
 				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
-				this.value = 'Ocultar modificar coche'; 
+				this.value = 'Ocultar mod. alumno'; 
 			} else { 
 				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Modificar coche'; 
+				this.value = 'Modificar datos alumno'; 
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="modificar_vehiculo" method="post" onsubmit="return validacion_modificar_vehiculo()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text" value="modificar_vehiculo"/> <br>
-			<label> Matrícula del vehículo a modificar: </label>
-				<input name="matriculavieja" type="text" placeholder="4 numeros 3 letras" /> <br>
+		<form name="modificar_alumno" method="post" onsubmit="return validacion_modificar_alumno()" action="GestorBD"> 
+			<input name="gestion" hidden="true" type="text" value="modificar_alumno"/> <br>
+			<label> DNI alumno: </label>
+				<input name="dniAlumno" type="text" placeholder="8 numeros y una letra" /> <br>
 			<input type="submit" id="submit" value="Modificar">
 		</form>
-		<!--<input type="button" value="Coche" onClick=" window.location.href='mod_coche.html' ">-->
-		<!--<input type="button" value="Moto" onClick=" window.location.href='mod_moto.html' ">-->
 	</div></div>
 	</fieldset>
 	<!--boton cerrado-->
 	<br/>
 
-	<!--boton anadir vehiculo estacionado-->
+	<!--boton anadir matricula-->
 	<fieldset>
-		<legend> Añadir Vehículos </legend>
+		<legend> Matricular </legend>
 	<div class="divspoiler">
-		<input type="button" value="Añadir coche" onclick="
+		<input type="button" value="Añadir matricula" onclick="
 			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
 				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
-				this.value = 'Ocultar añadir coche'; 
+				this.value = 'Ocultar matricular'; 
 			} else { 
 				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Añadir coche'; 
+				this.value = 'Matricular'; 
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="anyadir_vehiculo" method="post" onsubmit="return validacion_anadir_vehiculo()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text"  value="anyadir_vehiculo"/>
+		<form name="anyadir_matricula" method="post" onsubmit="return validacion_anadir_matricula()" action="GestorBD"> 
+			<input name="gestion" hidden="true" type="text"  value="anyadir_matricula"/>
 			
-			<!--<h4 style="text-align: center;"> Formulario de añadir coche </h4> <hr/>--> <br>
+			<br>
 			<label> Matrícula: </label>
 				<input name="matricula" type="text" placeholder="4 numeros 3 letras"> </input> <br>
 			<label> Número de ruedas: </label>
@@ -115,22 +112,22 @@
 
 	<!--boton borrar vehiculo estacionado-->
 	<fieldset>
-		<legend> Borrar Vehículos </legend>
+		<legend> Dar de baja alumno </legend>
 	<div class="divspoiler">
-		<input type="button" value="Borrar vehículo estacionado" onclick="
+		<input type="button" value="Dar de baja alumno" onclick="
 			if (this.parentNode.nextSibling.childNodes[0].style.display != '') { 
 				this.parentNode.nextSibling.childNodes[0].style.display = ''; 
-				this.value = 'Ocultar borrar vehículo'; 
+				this.value = 'Ocultar dar de baja alumno'; 
 			} else { 
 				this.parentNode.nextSibling.childNodes[0].style.display = 'none'; 
-				this.value = 'Borrar vehículo estacionado'; 
+				this.value = 'Dar de baja alumno'; 
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="borrar_vehiculo" method="post" onsubmit="return validacion_borrar_vehiculo()" action="GestorBD"> 
-			<input name="gestion" hidden="true" type="text"  value="borrar_vehiculo"/> <br>
+		<form name="baja_alumno" method="post" onsubmit="return validacion_baja_alumno()" action="GestorBD"> 
+			<input name="gestion" hidden="true" type="text"  value="baja_alumno"/> <br>
 			<label> Matrícula del vehículo a borrar: </label> 
-				<input name="matricula" type="text"  placeholder="4 numeros 3 letras"> </input>
+				<input name="dniAlumno" type="text"  placeholder="8 numero y una letras"> </input>
 			<input type="submit" id="submit" value="Borrar">
 		</form>
 	</div></div>
