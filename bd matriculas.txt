@@ -11,7 +11,7 @@ PRIMARY KEY(dni)
 );
 
 //alumnos de pruebas
-INSERT INTO alumnos VALUES ('12345678a', 'nombre', 'apeliido', 'anyo_inscripcion', 'ciclo');
+//INSERT INTO alumnos VALUES ('dni', 'nombre', 'apeliido', 'anyo_inscripcion', 'ciclo');
 
 INSERT INTO alumnos VALUES ('12345678b', 'Gorkas', 'Rubs', '2000', 'Desarrollo de aplicaciones');
 
