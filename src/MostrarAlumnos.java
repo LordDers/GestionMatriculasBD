@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MostrarAlumno
+ * Servlet implementation class MostrarAlumnos
  */
 public class MostrarAlumnos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -87,7 +87,7 @@ public class MostrarAlumnos extends HttpServlet {
 				String [] dni = new String[100];
 				String [] nombre = new String[100];
 				String [] apellido = new String[100];
-				String [] anyo_inscripcion = new String[100];
+				//Integer [] anyo_inscripcion = new int[100];
 				String [] ciclo = new String[100];
 				System.out.println("Pre while");
 				while (mostrar.next()) {	
@@ -97,8 +97,8 @@ public class MostrarAlumnos extends HttpServlet {
 					nombre[cont] = mostrar.getString("nombre");
 					System.out.println("Apellido "+apellido[cont]);
 					apellido[cont] = mostrar.getString("apellido");
-					System.out.println("Año inscripcion "+anyo_inscripcion[cont]);
-					anyo_inscripcion[cont] = mostrar.getString("anyo_inscripcion");
+					//System.out.println("Año inscripcion "+anyo_inscripcion[cont]);
+					//anyo_inscripcion[cont] = mostrar.getString("anyo_inscripcion");
 					System.out.println("Ciclo "+ciclo[cont]);
 					ciclo[cont] = mostrar.getString("ciclo");
 					cont++;
@@ -106,7 +106,7 @@ public class MostrarAlumnos extends HttpServlet {
 				System.out.println("Post while");
 
 				con.close();    
-				response(response,matricula,marca);
+				response(response, dni, nombre, apellido, ciclo);
 
 			} catch(Exception e) {
 				System.out.println("En el catch 2");
@@ -114,25 +114,26 @@ public class MostrarAlumnos extends HttpServlet {
 			}
 		}
 	}
-	
 	// Mostrar
-	private void response(HttpServletResponse response, String [] matricula, String [] marca) throws IOException {
+	private void response(HttpServletResponse response, String [] dni, String [] nombre, String [] apellido,  String [] ciclo) throws IOException {
 		response.setContentType( "text/html; charset=iso-8859-1" );
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<head>");
-			out.println("<title> Vehículos </title>");
+			out.println("<title> Alumnos </title>");
 			out.println("<link rel='stylesheet' type='text/css' href='stylebd.css'>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<p>-------------------------------</p>");
-		for (int i=0; i<matricula.length; i++) {	
-			if (matricula[i] == null) {
+		for (int i=0; i<dni.length; i++) {	
+			if (dni[i] == null) {
 				break;
 			} else {
 				//out.println("<p>-------------------------------</p>");
-				out.println("<p> <b>Matrícula:</b> " + matricula[i] + " | ");
-				out.print(" <b>Marca:</b> " + marca[i] + "</p>");
+				out.println("<p> <b>DNI:</b> " + dni[i] + " | ");
+				out.print(" <b>Nombre:</b> " + nombre[i] + "</p>");
+				out.print(" <b>Nombre:</b> " + apellido[i] + "</p>");
+				out.print(" <b>Ciclo:</b> " + ciclo[i] + "</p>");
 				out.println("<p>-------------------------------</p>");
 			}
 		}
