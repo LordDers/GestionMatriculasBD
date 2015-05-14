@@ -47,7 +47,7 @@ public class BuscarAlumno extends HttpServlet {
 		Connection con = null;	
 		Statement sentencia = null;
 		
-		System.out.println("Empieza modificando");
+		System.out.println("Empieza buscando");
 
 		String referencia=request.getParameter("alumno");
 		
