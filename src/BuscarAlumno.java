@@ -32,9 +32,10 @@ public class BuscarAlumno extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		private static final String USUARIO = "root";
-		private static final String CONTRA = "zubiri";
-		static final String URL_BD = "jdbc:mysql://localhost/pruebas_java";
+		//private static final String USUARIO = "root";
+		final String USUARIO = "root";
+		final String CONTRA = "zubiri";
+		final String URL_BD = "jdbc:mysql://localhost/pruebas_java";
 		
 		System.out.println("Empieza buscando");
 		String referencia=request.getParameter("matricula");
@@ -83,7 +84,7 @@ public class BuscarAlumno extends HttpServlet {
 		}
 		
 		// Respuesta simple
-		private void response(HttpServletResponse response,String msg) throws IOException {
+		private void response(HttpServletResponse response, String msg) throws IOException {
 			response.setContentType( "text/html; charset=iso-8859-1" );
 			PrintWriter out = response.getWriter();
 			out.println("<html>");
