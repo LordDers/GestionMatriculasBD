@@ -49,7 +49,7 @@ public class BuscarAlumno extends HttpServlet {
 		
 		System.out.println("Empieza modificando");
 
-		String referencia=request.getParameter("matricula");
+		String referencia=request.getParameter("alumno");
 		
 		try {
 			
