@@ -57,7 +57,7 @@ public class BuscarAlumno extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			// Open a connection
-			con = DriverManager.getConnection(URL_BD,USUARIO,CONTRA);
+			con = DriverManager.getConnection("jdbc:mysql://localhost/matriculasBD",USUARIO,CONTRA);
 			
 			sentencia = con.createStatement();
 			
