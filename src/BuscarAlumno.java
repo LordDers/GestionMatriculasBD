@@ -21,7 +21,7 @@ public class BuscarAlumno extends HttpServlet {
 	
 	private static final String USUARIO="root";
 	private static final String CONTRA="zubiri";
-	static final String URL_BD="jdbc:mysql://localhost/pruebas_java";
+	static final String URL_BD="jdbc:mysql://localhost/matriculasBD";
 
     /**
      * Default constructor. 
@@ -62,11 +62,10 @@ public class BuscarAlumno extends HttpServlet {
 			sentencia = con.createStatement();
 			
 			String sql;		    
-			System.out.println("Referencia: "+referencia);		     
+			System.out.println("Referencia: "+referencia);			
 			//sql="SELECT * FROM alumnos WHERE dni='12345678b'";
 			sql="SELECT * FROM alumnos WHERE dni=\""+referencia+"\"";
-			
-			
+			System.out.println("Sql: "+sql);			
 			
 			ResultSet buscar = sentencia.executeQuery(sql);
 			int cont = 0;
