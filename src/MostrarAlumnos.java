@@ -67,7 +67,7 @@ public class MostrarAlumnos extends HttpServlet {
 
 		String gestion=request.getParameter("gestion");
 		System.out.println(gestion);
-		if (gestion.equals("mostrar_vehiculos")) {
+		if (gestion.equals("mostrar_alumnos")) {
 			System.out.println("Empieza mostrando");
 
 			try {
@@ -81,18 +81,26 @@ public class MostrarAlumnos extends HttpServlet {
 				sentencia = con.createStatement();
 
 				String sql;		        
-				sql="SELECT matricula, marca FROM coches";
+				sql="SELECT * FROM alumnos";
 				ResultSet mostrar = sentencia.executeQuery(sql);
 				int cont=0;
-				String [] matricula = new String[100];
-				String [] marca = new String[100];
+				String [] dni = new String[100];
+				String [] nombre = new String[100];
+				String [] apellido = new String[100];
+				String [] anyo_inscripcion = new String[100];
+				String [] ciclo = new String[100];
 				System.out.println("Pre while");
 				while (mostrar.next()) {	
-					System.out.println("Matrícula:"+mostrar.getString("matricula"));
-					matricula[cont] = mostrar.getString("matricula");
-					System.out.println("Matrícula "+matricula[cont]);
-					marca[cont] = mostrar.getString("marca");
-					System.out.println("Marca "+marca[cont]);
+					System.out.println("DNI:"+mostrar.getString("dni"));
+					dni[cont] = mostrar.getString("dni");
+					System.out.println("Nombre "+dni[cont]);
+					nombre[cont] = mostrar.getString("nombre");
+					System.out.println("Apellido "+apellido[cont]);
+					apellido[cont] = mostrar.getString("apellido");
+					System.out.println("Año inscripcion "+anyo_inscripcion[cont]);
+					anyo_inscripcion[cont] = mostrar.getString("anyo_inscripcion");
+					System.out.println("Ciclo "+ciclo[cont]);
+					ciclo[cont] = mostrar.getString("ciclo");
 					cont++;
 				}
 				System.out.println("Post while");
