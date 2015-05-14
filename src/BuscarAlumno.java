@@ -56,7 +56,7 @@ public class BuscarAlumno extends HttpServlet {
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
 
-			System.out.println("bd "+URL_BD+" usuario "+USUARIO+" contra "+CONTRA);
+			//System.out.println("bd: "+URL_BD+" usuario: "+USUARIO+" contra: "+CONTRA);
 			// Open a connection
 			con = DriverManager.getConnection(URL_BD,USUARIO,CONTRA);
 			
@@ -131,12 +131,11 @@ public class BuscarAlumno extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<table align=\"center\" border=5><tr>");
-			out.println("<th>Matrícula</th>");
-			out.println("<th>Marca</th>");
-			out.println("<th>Motor</th>");
-			out.println("<th>Automático</th>");
-			out.println("<th>Número de ruedas</th>");
-			out.println("<th>Consumo</th>");
+			out.println("<th>DNI</th>");
+			out.println("<th>Nombre</th>");
+			out.println("<th>Apellido</th>");
+			out.println("<th>Año de inscripción</th>");
+			out.println("<th>Ciclo</th>");
 		out.println("</tr><tr>");
 			out.println("<td>" + encontrado.getDni() + "</td>");
 			out.println("<td>" + encontrado.getNombre() + "</td>");
