@@ -1,0 +1,66 @@
+body {
+	background-color: #ADD8E6;
+}
+
+p {
+	text-align: center;
+	font-family: sans-serif;
+}
+
+b {
+	text-align: center;
+}
+
+button {
+	padding: 1px 10px;
+	background: #D3D3D3;
+	margin: 0 47% auto;
+}
+
+label {
+	float: left;
+	/*text-align: center;*/
+	/*margin-right: 0.5em;*/
+	display: inline;
+	color: black;
+	font-family: sans-serif;
+	margin-left: 20px;
+}
+
+form {
+	text-align: right;
+	margin-right: 20px;
+}
+
+input[type=submit] {
+	padding: 1px 10px;
+	background: #ccc;
+	border: 1;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 10px;
+}
+
+::-webkit-input-placeholder { 
+	color: #00BFFF; 
+}
+
+fieldset {
+	border: 6px groove #ccc;
+	background: #F8ECE0;
+	color: #000;
+	text-align: center;
+	padding: 5px; /* Tamaño vertical fieldset */
+	width: 500px; /* Tamaño horizontal fieldset */
+	margin:auto;
+}
+
+legend {
+	text-align: left;
+	font-weight: bold;
+	color: #61380B;
+}
+
+td {
+	text-align: center;
+}
