@@ -50,7 +50,6 @@ public class Borrar extends HttpServlet {
 		System.out.println("Borrando");
 		
 		Alumno alumno = new Alumno(request.getParameter("dniAlumno"),"","",0,"");
-		//alumno.setDni(request.getParameter("dniAlumno"));
 		
 		//String sentenciado = request.getParameter("dniAlumno");
 		Boolean confirmacion = Boolean.parseBoolean(request.getParameter("confirmacion"));
