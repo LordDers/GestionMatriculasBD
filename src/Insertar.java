@@ -49,7 +49,7 @@ public class Insertar extends HttpServlet {
 		String apellido = request.getParameter("apellido");
 		int anyo = Integer.parseInt(request.getParameter("anyo_inscripcion"));
 		String ciclo = request.getParameter("ciclo");
-		System.out.println("Nuevo alumno"+dni);
+		System.out.println("Nuevo alumno "+dni+" "+nombre+" "+apellido+" "+anyo+" "+ciclo);
 		
 		Alumno nuevoAlumno = new Alumno(dni,nombre,apellido,anyo,ciclo);
 		
