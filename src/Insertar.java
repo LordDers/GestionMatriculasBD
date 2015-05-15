@@ -85,7 +85,7 @@ public class Insertar extends HttpServlet {
 			int crear = sentencia.executeUpdate(sql);
 			System.out.println("Valor crear: "+crear);
 			if (crear==1){
-				
+				response(response, dni);
 			}else{
 				response(response,"error al matricular el alumno", "relleno");
 			}	
@@ -127,37 +127,6 @@ public class Insertar extends HttpServlet {
 				out.println("<input type=\"submit\" id=\"submit\" value=\"mostrar\">");
 				out.println("</form>");
 		out.println("<a href='index.html'> <button> Volver </button> </a>");
-		out.println("</body>");
-		out.println("</html>");
-	}
-	
-	// Buscar y Añadir
-	private void response(HttpServletResponse response, Alumno nuevoAlumno) throws IOException {
-		response.setContentType( "text/html; charset=iso-8859-1" );
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-			out.println("<title>  </title>");
-			out.println("<link rel='stylesheet' type='text/css' href='stylebd.css'>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<table align=\"center\" border=5><tr>");
-			out.println("<th>DNI</th>");
-			out.println("<th>Nombre</th>");
-			out.println("<th>Apellido</th>");
-			out.println("<th>Año de inscripción</th>");
-			out.println("<th>Ciclo</th>");
-		out.println("</tr><tr>");
-			out.println("<td>" + nuevoAlumno.getDni() + "</td>");
-			out.println("<td>" + nuevoAlumno.getNombre() + "</td>");
-			out.println("<td>" + nuevoAlumno.getApellido() + "</td>");		
-			out.println("<td>" + nuevoAlumno.getAnyoInscripcion() + "</td>");		
-			out.println("<td>" + nuevoAlumno.getCiclo() + "</td>");
-		out.println("</tr><tr>");
-			out.println("<td colspan=6>");
-				out.println("<center> <a href='index.html'> <button> Volver </button> </a> </center>");
-			out.println("</td>");
-		out.println("</tr></table>");
 		out.println("</body>");
 		out.println("</html>");
 	}
