@@ -1,16 +1,26 @@
-
+import com.zubiri.matriculas.Alumno;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.Statement;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.zubiri.matriculas.Alumno;
 
 /**
  * Servlet implementation class Matricular
  */
 public class Insertar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static final String USUARIO="root";
+	private static final String CONTRA="zubiri";
+	private static final String URL_BD="jdbc:mysql://localhost/matriculasBD";
 
     /**
      * Default constructor. 
@@ -31,6 +41,123 @@ public class Insertar extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		System.out.println("Empieza añadiendo");
+		//alumno('dni', 'nombre', 'apeliido', 'anyo_inscripcion', 'ciclo');		
+		
+		String dni = request.getParameter("dni");
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
+		int anyo = Integer.parseInt(request.getParameter("anyo_inscripcion"));
+		String ciclo = request.getParameter("ciclo");
+		System.out.println("Nuevo alumno"+dni);
+		
+		Alumno nuevoAlumno = new Alumno(dni,nombre,apellido,anyo,ciclo);
+		
+		Connection con = null;	
+		Statement sentencia = null;
+		try {
+			
+			// Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// Open a connection
+			con = DriverManager.getConnection(URL_BD,USUARIO,CONTRA);
+			
+			sentencia = con.createStatement();
+			
+			String sql;
+			//INSERT INTO coches VALUES ("0000AAA", "prueba1", true, true, 4, 100);
+			System.out.println("INSERT INTO alumnos VALUES (\""+
+																nuevoAlumno.getDni()+"\",\""+
+																nuevoAlumno.getNombre()+"\","+
+																nuevoAlumno.getApellido()+","+
+																nuevoAlumno.getAnyoInscripcion()+",\""+
+																nuevoAlumno.getCiclo()+"\")");
+			
+			sql="INSERT INTO alumnos VALUES (\""+
+					nuevoAlumno.getDni()+"\",\""+
+					nuevoAlumno.getNombre()+"\","+
+					nuevoAlumno.getApellido()+","+
+					nuevoAlumno.getAnyoInscripcion()+",\""+
+					nuevoAlumno.getCiclo()+"\")";
+			
+			int crear = sentencia.executeUpdate(sql);
+			System.out.println("Valor crear: "+crear);
+			
+			sql="SELECT * FROM coches WHERE matricula='"+matricula+"'";
+			ResultSet buscar = sentencia.executeQuery(sql);
+			while (buscar.next()) {
+				String nuevoAlumno = buscar.getString("matricula");
+				if (nuevoAlumno!=null) {			        	
+					String matricula2 = buscar.getString("matricula");
+					String marca2 = buscar.getString("marca");
+					Boolean motor2 = buscar.getBoolean("motor");
+					Boolean automatico2 = buscar.getBoolean("automatico");
+					Integer n_ruedas2 = buscar.getInt("n_ruedas");
+					Integer consumo2 = buscar.getInt("consumo");
+					System.out.println("Matrícula: "+matricula2);
+					System.out.println("Marca: "+marca2);
+					response(response,	nuevoAlumno);
+				} else {
+					response(response, "Error al añadir vehículo");
+				}
+			}
+			con.close();    
+			
+		} catch(ArrayIndexOutOfBoundsException e) {
+			//response(response, "no se encontro el vehiculo");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	// Respuesta simple
+	private void response(HttpServletResponse response, String msg) throws IOException {
+		response.setContentType( "text/html; charset=iso-8859-1" );
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+			out.println("<title> Respuesta </title>");
+			out.println("<link rel='stylesheet' type='text/css' href='stylebd.css'>");
+		out.println("</head>");
+		out.println("<body>");				
+		out.println("<p>" + msg + "</p>");
+		out.println("<a href='index.html'> <button> Volver </button> </a>");
+		out.println("</body>");
+		out.println("</html>");
+	}
+	
+	// Buscar y Añadir
+	private void response(HttpServletResponse response, Alumno nuevoAlumno) throws IOException {
+		response.setContentType( "text/html; charset=iso-8859-1" );
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+			out.println("<title>  </title>");
+			out.println("<link rel='stylesheet' type='text/css' href='stylebd.css'>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<table align=\"center\" border=5><tr>");
+			out.println("<th>DNI</th>");
+			out.println("<th>Nombre</th>");
+			out.println("<th>Apellido</th>");
+			out.println("<th>Año de inscripción</th>");
+			out.println("<th>Ciclo</th>");
+		out.println("</tr><tr>");
+			out.println("<td>" + nuevoAlumno.getDni() + "</td>");
+			out.println("<td>" + nuevoAlumno.getNombre() + "</td>");
+			out.println("<td>" + nuevoAlumno.getApellido() + "</td>");		
+			out.println("<td>" + nuevoAlumno.getAnyoInscripcion() + "</td>");		
+			out.println("<td>" + nuevoAlumno.getCiclo() + "</td>");
+		out.println("</tr><tr>");
+			out.println("<td colspan=6>");
+				out.println("<center> <a href='index.html'> <button> Volver </button> </a> </center>");
+			out.println("</td>");
+		out.println("</tr></table>");
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }
