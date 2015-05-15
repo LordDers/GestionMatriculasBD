@@ -122,7 +122,7 @@ public class Insertar extends HttpServlet {
 		out.println("<head>");
 		out.println("<form name=\"buscar_alumno\" method=\"post\" onsubmit=\"return validacion_busqueda_alumno()\" action=\"BuscarAlumno\">");
 				out.println("<label> Alumno matriculado: </label>");
-				out.println("<input name=\"alumno\" type=\"text\" placeholder=\""+dni+"\"/>");
+				out.println("<input name=\"alumno\" type=\"text\" value=\""+dni+"\" placeholder=\""+dni+"\"/>");
 				out.println("<input type=\"submit\" id=\"submit\" value=\"mostrar\">");
 				out.println("</form>");
 		out.println("<a href='index.html'> <button> Volver </button> </a>");
