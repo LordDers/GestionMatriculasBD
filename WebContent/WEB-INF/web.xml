@@ -17,7 +17,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Insertar</servlet-name>
-    <url-pattern>/Matricular</url-pattern>
+    <url-pattern>/Insertar</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
