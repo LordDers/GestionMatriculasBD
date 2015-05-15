@@ -82,12 +82,11 @@ public class BuscarAlumno extends HttpServlet {
 				anyo = buscar.getInt("anyo_inscripcion");
 				ciclo = buscar.getString("ciclo");
 				System.out.println("Dni: "+dni);
-				System.out.println("Nombre: "+nombre);
+				System.out.println("Nombre: "+nombre);				
 				cont++;
-			}
+			}			
 			
-			//INSERT INTO alumnos VALUES ('dni', 'nombre', 'apeliido', 'anyo_inscripcion', 'ciclo');
-			
+			//alumno('dni', 'nombre', 'apeliido', 'anyo_inscripcion', 'ciclo');				
 			Alumno encontrado = new Alumno(dni,nombre,apellido,anyo,ciclo);
 			
 			if (cont > 0) {
