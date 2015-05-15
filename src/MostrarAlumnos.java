@@ -131,8 +131,8 @@ public class MostrarAlumnos extends HttpServlet {
 			} else {
 				//out.println("<p>-------------------------------</p>");
 				out.println("<p> <b>DNI:</b> " + dni[i] + " | ");
-				out.print(" <b>Nombre:</b> " + nombre[i] + "</p>");
-				out.print(" <b>Nombre:</b> " + apellido[i] + "</p>");
+				out.print(" <b>Nombre:</b> " + nombre[i] + " | ");
+				out.print(" <b>Nombre:</b> " + apellido[i] + " | ");
 				out.print(" <b>Ciclo:</b> " + ciclo[i] + "</p>");
 				out.println("<p>-------------------------------</p>");
 			}
