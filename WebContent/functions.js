@@ -1,4 +1,4 @@
-function validacion_busqueda_matricula() {
+/*function validacion_busqueda_matricula() {
 	console.log("Comprobación búsqueda matrícula");
 	var x = document.forms["buscar_matricula"]["matricula"].value;
 	if (validar_matricula(x)){ 
@@ -18,7 +18,7 @@ function validacion_modificar_alumno() {
 	} else {
 		return false;
 	};
-}
+}*/
 
 /*function validacion_modificar_vehiculo_bd() {
 	var a = document.forms["modificar_vehiculo"]["matriculavieja"].value;
@@ -29,7 +29,7 @@ function validacion_modificar_alumno() {
 	};
 }*/
 
-function validacion_anadir_vehiculo() {
+/*function validacion_anadir_vehiculo() {
 	var x = document.forms["anyadir_vehiculo"]["matricula"].value;
 	if (validar_matricula(x)) {
 		return true;
@@ -68,7 +68,7 @@ function validar_matricula(x) {
 			return false;
 		}
 	}
-}
+}*/
 	
 /*function validar_matricula_bd(x) {
 	if (x == null || x == "") {
@@ -94,7 +94,7 @@ function validar_matricula(x) {
 	}
 }*/
 
-function validar_alumno(x) {
+/*function validar_alumno(x) {
 	if (x == null || x == "") {
 		alert("Escribe el DNI");
 		console.log("Comprobación nula");
@@ -115,4 +115,4 @@ function validar_alumno(x) {
 			return false;
 		}
 	}
-}
+}*/

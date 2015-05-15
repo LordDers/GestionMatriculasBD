@@ -60,7 +60,7 @@
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="modificar_alumno" method="post" onsubmit="return validacion_modificar_alumno()" action="GestorBD"> 
+		<form name="modificar_alumno" method="post" onsubmit="return validacion_modificar_alumno()" action="Modificar"> 
 			<input name="gestion" hidden="true" type="text" value="modificar_alumno"/> <br>
 			<label> DNI alumno: </label>
 				<input name="dniAlumno" type="text" placeholder="8 numeros y una letra" /> <br>
@@ -124,10 +124,10 @@
 			}
 		">
 	</div><div><div class="spoiler" style="display: none;">
-		<form name="baja_alumno" method="post" onsubmit="return validacion_baja_alumno()" action="GestorBD"> 
+		<form name="baja_alumno" method="post" onsubmit="return validacion_baja_alumno()" action="Borrar"> 
 			<input name="gestion" hidden="true" type="text"  value="baja_alumno"/> <br>
-			<label> Dar de baja usuario: </label> 
-				<input name="dniAlumno" type="text"  placeholder="8 numero y una letras"/>
+			<label> DNI del alumno a dar de baja: </label> 
+				<input name="dniAlumno" type="text"  placeholder="8 numero y una letras"> </input>
 			<input type="submit" id="submit" value="Borrar">
 		</form>
 	</div></div>
