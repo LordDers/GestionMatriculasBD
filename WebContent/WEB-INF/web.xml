@@ -11,12 +11,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>Matricular</display-name>
-    <servlet-name>Matricular</servlet-name>
-    <servlet-class>Matricular</servlet-class>
+    <display-name>Insertar</display-name>
+    <servlet-name>Insertar</servlet-name>
+    <servlet-class>Insertar</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Matricular</servlet-name>
+    <servlet-name>Insertar</servlet-name>
     <url-pattern>/Matricular</url-pattern>
   </servlet-mapping>
   <servlet>
