@@ -69,15 +69,15 @@ public class Insertar extends HttpServlet {
 			//INSERT INTO coches VALUES ("0000AAA", "prueba1", true, true, 4, 100);
 			System.out.println("INSERT INTO alumnos VALUES (\""+
 																nuevoAlumno.getDni()+"\",\""+
-																nuevoAlumno.getNombre()+"\","+
-																nuevoAlumno.getApellido()+","+
+																nuevoAlumno.getNombre()+"\",\""+
+																nuevoAlumno.getApellido()+"\","+
 																nuevoAlumno.getAnyoInscripcion()+",\""+
 																nuevoAlumno.getCiclo()+"\")");
 			
 			sql="INSERT INTO alumnos VALUES (\""+
 					nuevoAlumno.getDni()+"\",\""+
-					nuevoAlumno.getNombre()+"\","+
-					nuevoAlumno.getApellido()+","+
+					nuevoAlumno.getNombre()+"\",\""+
+					nuevoAlumno.getApellido()+"\","+
 					nuevoAlumno.getAnyoInscripcion()+",\""+
 					nuevoAlumno.getCiclo()+"\")";
 			
