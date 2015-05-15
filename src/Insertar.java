@@ -82,27 +82,6 @@ public class Insertar extends HttpServlet {
 					nuevoAlumno.getAnyoInscripcion()+",\""+
 					nuevoAlumno.getCiclo()+"\")";
 			
-			int crear = sentencia.executeUpdate(sql);
-			System.out.println("Valor crear: "+crear);
-			
-			sql="SELECT * FROM coches WHERE matricula='"+matricula+"'";
-			ResultSet buscar = sentencia.executeQuery(sql);
-			while (buscar.next()) {
-				String nuevoAlumno = buscar.getString("matricula");
-				if (nuevoAlumno!=null) {			        	
-					String matricula2 = buscar.getString("matricula");
-					String marca2 = buscar.getString("marca");
-					Boolean motor2 = buscar.getBoolean("motor");
-					Boolean automatico2 = buscar.getBoolean("automatico");
-					Integer n_ruedas2 = buscar.getInt("n_ruedas");
-					Integer consumo2 = buscar.getInt("consumo");
-					System.out.println("Matrícula: "+matricula2);
-					System.out.println("Marca: "+marca2);
-					response(response,	nuevoAlumno);
-				} else {
-					response(response, "Error al añadir vehículo");
-				}
-			}
 			con.close();    
 			
 		} catch(ArrayIndexOutOfBoundsException e) {
@@ -112,23 +91,7 @@ public class Insertar extends HttpServlet {
 		}
 		
 	}
-	
-	// Respuesta simple
-	private void response(HttpServletResponse response, String msg) throws IOException {
-		response.setContentType( "text/html; charset=iso-8859-1" );
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-			out.println("<title> Respuesta </title>");
-			out.println("<link rel='stylesheet' type='text/css' href='stylebd.css'>");
-		out.println("</head>");
-		out.println("<body>");				
-		out.println("<p>" + msg + "</p>");
-		out.println("<a href='index.html'> <button> Volver </button> </a>");
-		out.println("</body>");
-		out.println("</html>");
-	}
-	
+		
 	// Buscar y Añadir
 	private void response(HttpServletResponse response, Alumno nuevoAlumno) throws IOException {
 		response.setContentType( "text/html; charset=iso-8859-1" );
