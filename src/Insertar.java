@@ -82,6 +82,13 @@ public class Insertar extends HttpServlet {
 					nuevoAlumno.getAnyoInscripcion()+",\""+
 					nuevoAlumno.getCiclo()+"\")";
 			
+			int crear = sentencia.executeUpdate(sql);
+			System.out.println("Valor crear: "+crear);
+			if (crear==1){
+				
+			}else{
+				response(response,"error al matricular el alumno", "relleno");
+			}	
 			con.close();    
 			
 		} catch(ArrayIndexOutOfBoundsException e) {
@@ -91,7 +98,39 @@ public class Insertar extends HttpServlet {
 		}
 		
 	}
-		
+	
+	// Respuesta simple
+	private void response(HttpServletResponse response, String msg, String relleno) throws IOException {
+		response.setContentType( "text/html; charset=iso-8859-1" );
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+			out.println("<title> Respuesta </title>");
+			out.println("<link rel='stylesheet' type='text/css' href='stylebd.css'>");
+		out.println("</head>");
+		out.println("<body>");				
+		out.println("<p>" + msg + "</p>");
+		out.println("<a href='index.html'> <button> Volver </button> </a>");
+		out.println("</body>");
+		out.println("</html>");
+	}
+	
+	//muestra de alumno matriculado
+	private void response(HttpServletResponse response, String dni) throws IOException {
+		response.setContentType( "text/html; charset=iso-8859-1" );
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<form name=\"buscar_alumno\" method=\"post\" onsubmit=\"return validacion_busqueda_alumno()\" action=\"BuscarAlumno\">");
+				out.println("<label> Alumno matriculado: </label>");
+				out.println("<input name=\"alumno\" type=\"text\" placeholder=\""+dni+"\"/>");
+				out.println("<input type=\"submit\" id=\"submit\" value=\"mostrar\">");
+				out.println("</form>");
+		out.println("<a href='index.html'> <button> Volver </button> </a>");
+		out.println("</body>");
+		out.println("</html>");
+	}
+	
 	// Buscar y Añadir
 	private void response(HttpServletResponse response, Alumno nuevoAlumno) throws IOException {
 		response.setContentType( "text/html; charset=iso-8859-1" );
