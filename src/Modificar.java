@@ -53,7 +53,6 @@ public class Modificar extends HttpServlet {
 		Boolean confirmacion = Boolean.parseBoolean(request.getParameter("confirmacion"));
 		
 		Alumno alumno = new Alumno(request.getParameter("dniAlumno"),"","",0,"");
-		//alumno.setDni(request.getParameter("dniAlumno"));
 		
 		try {
 			
