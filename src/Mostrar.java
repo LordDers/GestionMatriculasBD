@@ -133,7 +133,7 @@ public class Mostrar extends HttpServlet {
 				out.println("<p> <b>DNI:</b> " + encontrados.getDni(i) + " | ");
 				out.print(" <b>Nombre:</b> " + encontrados.getNombre(i) + " | ");
 				out.print(" <b>Nombre:</b> " + encontrados.getApellido(i) + " | ");
-				out.print(" <b>Ciclo:</b> " + encontrados.getAnyoInscripcion(i) + "</p>");
+				out.print(" <b>Ciclo:</b> " + encontrados.getAnyoInscripcion(i) + "</p>"); 
 				out.print(" <b>Ciclo:</b> " + encontrados.getCiclo(i) + "</p>");
 				out.println("<p>-------------------------------</p>");
 		}
