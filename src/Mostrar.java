@@ -1,4 +1,5 @@
 import com.zubiri.matriculas.Alumno;
+import com.zubiri.matriculas.Alumnos;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -98,14 +99,14 @@ public class Mostrar extends HttpServlet {
 					ciclo = mostrar.getString("ciclo");
 					System.out.println("Dni: "+dni);
 					System.out.println("Nombre: "+nombre);
+					Alumno encontrado = new Alumno(dni,nombre,apellido,anyo,ciclo);
+					Alumnos.anyadirAlumno(encontrado);
 					cont++;
 				}
-				System.out.println("Post while");
-				
-				Alumno encontrados = new Alumno(dni,nombre,apellido,anyo,ciclo);
+				System.out.println("Post while");				
 				
 				if (cont > 0) {
-					response(response, encontrados);
+					response(response);
 				} else {
 					//response(response, "No se encontró alumno");
 				}
@@ -118,7 +119,7 @@ public class Mostrar extends HttpServlet {
 		}
 	}
 	// Mostrar
-	private void response(HttpServletResponse response, Alumno encontrados) throws IOException {
+	private void response(HttpServletResponse response) throws IOException {
 		response.setContentType( "text/html; charset=iso-8859-1" );
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
@@ -128,13 +129,13 @@ public class Mostrar extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<p>-------------------------------</p>");
-		for (int i = 0; i<encontrados.legth; i++){
-				out.println("<p>-------------------------------</p>");
-				out.println("<p> <b>DNI:</b> " + encontrados.getDni(i) + " | ");
-				out.print(" <b>Nombre:</b> " + encontrados.getNombre(i) + " | ");
-				out.print(" <b>Nombre:</b> " + encontrados.getApellido(i) + " | ");
-				out.print(" <b>Ciclo:</b> " + encontrados.getAnyoInscripcion(i) + "</p>"); 
-				out.print(" <b>Ciclo:</b> " + encontrados.getCiclo(i) + "</p>");
+		
+		for (int i = 0; i<Alumnos.alumnos.size(); i++){
+				out.println("<p> <b>DNI:</b> " + Alumnos.alumnos.get(i).getDni() + " | ");
+				out.print(" <b>Nombre:</b> " + Alumnos.alumnos.get(i).getNombre() + " | ");
+				out.print(" <b>Nombre:</b> " + Alumnos.alumnos.get(i).getApellido() + " | ");
+				//out.print(" <b>Ciclo:</b> " + Alumnos.alumnos.get(i).getAnyoInscripcion() + "</p>"); 
+				//out.print(" <b>Ciclo:</b> " + Alumnos.alumnos.get(i).getCiclo() + "</p>");
 				out.println("<p>-------------------------------</p>");
 		}
 		out.println("<a href='index.html'> <button> Volver </button> </a>");
