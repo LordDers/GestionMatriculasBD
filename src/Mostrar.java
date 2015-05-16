@@ -49,7 +49,7 @@ public class Mostrar extends HttpServlet {
 		} catch(Exception e) {
 			System.out.println("En el catch 1");
 			System.err.println("Error "+ e);
-		}
+		} 
 
 		String gestion=request.getParameter("mostrarAlumno");
 		System.out.println(gestion);
