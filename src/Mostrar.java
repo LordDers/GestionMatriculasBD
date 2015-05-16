@@ -53,7 +53,7 @@ public class Mostrar extends HttpServlet {
 
 		String gestion=request.getParameter("mostrarAlumno");
 		System.out.println(gestion);
-		if (gestion.equals("Mostrar_Alumnos")) {
+		if (gestion.equals("mostrar_alumnos")) {
 			try {
 				System.out.println("En el try mostrar");
 				// Register JDBC driver
@@ -111,6 +111,7 @@ public class Mostrar extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<p>-------------------------------</p>");
+		//aqui falta un bucle que recorra el objeto
 				out.println("<p>-------------------------------</p>");
 				out.println("<p> <b>DNI:</b> " + encontrados.getDni() + " | ");
 				out.print(" <b>Nombre:</b> " + encontrados.getNombre() + " | ");
