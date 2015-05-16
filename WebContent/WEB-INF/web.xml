@@ -51,12 +51,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>MostrarAlumnos</display-name>
-    <servlet-name>MostrarAlumnos</servlet-name>
-    <servlet-class>MostrarAlumnos</servlet-class>
+    <display-name>Mostrar</display-name>
+    <servlet-name>Mostrar</servlet-name>
+    <servlet-class>Mostrar</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>MostrarAlumnos</servlet-name>
-    <url-pattern>/MostrarAlumnos</url-pattern>
+    <servlet-name>Mostrar</servlet-name>
+    <url-pattern>/Mostrar</url-pattern>
   </servlet-mapping>
 </web-app>
