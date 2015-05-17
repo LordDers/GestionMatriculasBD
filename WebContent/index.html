@@ -15,7 +15,7 @@
 	<fieldset>
 			<legend> Mostrar alumnos matriculados </legend>
 	<form method="post" action="Mostrar" style="text-align: center">
-		<input name="gestion" hidden="true" type="text" value="mostrar_alumnos"/>
+		<!-- <input name="gestion" hidden="true" type="text" value="mostrar_alumnos"/> -->
 		<input type="submit" id="submit" value="Mostrar alumnos">
 	</form> 
 	</fieldset>
@@ -36,7 +36,7 @@
 		">
 	</div><div><div class="spoiler" style="display: none;">
 		<form name="buscar_alumno" method="post" onsubmit="return validacion_busqueda_alumno()" action="BuscarAlumno"> 
-			<input name="gestion" hidden="true" type="text"  value="buscar_alumno"/> <br>
+			<!-- <input name="gestion" hidden="true" type="text"  value="buscar_alumno"/> <br> -->
 			<label> Búsqueda por DNI: </label>
 			<input name="alumno" type="text" placeholder="DNI: 8 numeros y una letra"/>
 			<input type="submit" id="submit" value="Buscar">
@@ -61,7 +61,7 @@
 		">
 	</div><div><div class="spoiler" style="display: none;">
 		<form name="modificar_alumno" method="post" onsubmit="return validacion_modificar_alumno()" action="Modificar"> 
-			<input name="gestion" hidden="true" type="text" value="modificar_alumno"/> <br>
+			<!-- <input name="gestion" hidden="true" type="text" value="modificar_alumno"/> <br> -->
 			<label> DNI alumno: </label>
 				<input name="dniAlumno" type="text" placeholder="8 numeros y una letra" /> <br>
 			<input type="submit" id="submit" value="Modificar">
@@ -122,7 +122,7 @@
 		">
 	</div><div><div class="spoiler" style="display: none;">
 		<form name="baja_alumno" method="post" onsubmit="return validacion_baja_alumno()" action="Borrar"> 
-			<input name="gestion" hidden="true" type="text"  value="baja_alumno"/> <br>
+			<!--  <input name="gestion" hidden="true" type="text"  value="baja_alumno"/> <br> -->
 			<label> DNI del alumno a dar de baja: </label> 
 				<input name="dniAlumno" type="text"  placeholder="8 numero y una letras"/>
 			<input type="submit" id="submit" value="Borrar">
