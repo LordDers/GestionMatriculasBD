@@ -108,8 +108,8 @@ public class Mostrar extends HttpServlet {
 				out.println("<p> <b>DNI:</b> " + Alumnos.alumnos.get(i).getDni() + " | ");
 				out.print(" <b>Nombre:</b> " + Alumnos.alumnos.get(i).getNombre() + " | ");
 				out.print(" <b>Apellido:</b> " + Alumnos.alumnos.get(i).getApellido() + " | ");
-				//out.print(" <b>Año inscripcion:</b> " + Alumnos.alumnos.get(i).getAnyoInscripcion() + "</p>"); 
-				//out.print(" <b>Ciclo:</b> " + Alumnos.alumnos.get(i).getCiclo() + "</p>");
+				out.print(" <b>Año inscripcion:</b> " + Alumnos.alumnos.get(i).getAnyoInscripcion() + "</p>"); 
+				out.print(" <b>Ciclo:</b> " + Alumnos.alumnos.get(i).getCiclo() + "</p>");
 				out.println("<p>-------------------------------</p>");
 		}
 		Alumnos.alumnos.clear();
