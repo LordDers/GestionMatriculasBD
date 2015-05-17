@@ -1,4 +1,5 @@
 import com.zubiri.matriculas.Alumno;
+import com.zubiri.matriculas.Alumnos;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -51,7 +52,7 @@ public class Mostrar extends HttpServlet {
 			System.err.println("Error "+ e);
 		} 
 
-		String gestion=request.getParameter("mostrarAlumno");
+		String gestion = request.getParameter("gestion");
 		System.out.println(gestion);
 		if (gestion.equals("mostrar_alumnos")) {
 			try {
@@ -79,46 +80,44 @@ public class Mostrar extends HttpServlet {
 					apellido = mostrar.getString("apellido");
 					anyo = mostrar.getInt("anyo_inscripcion");
 					ciclo = mostrar.getString("ciclo");
-					System.out.println("Dni: "+dni);
-					System.out.println("Nombre: "+nombre);
+					Alumno encontrado = new Alumno(dni,nombre,apellido,anyo,ciclo);
+					Alumnos.anyadirAlumno(encontrado);
 					cont++;
 				}
 				
-				Alumno encontrados = new Alumno(dni,nombre,apellido,anyo,ciclo);
-				
 				if (cont > 0) {
-					response(response, encontrados);
+					response(response);
 				} else {
 					//response(response, "No se encontró alumno");
 				}
 				con.close();
 
 			} catch(ArrayIndexOutOfBoundsException e) {
-				//response(response, "no se encontro el vehiculo");
+				//response(response, "no se encontro el alumno");
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
 	}
 	// Mostrar
-	private void response(HttpServletResponse response, Alumno encontrados) throws IOException {
+	private void response(HttpServletResponse response) throws IOException {
 		response.setContentType( "text/html; charset=iso-8859-1" );
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<head>");
-			out.println("<title> Alumnos </title>");
+			out.println("<title> Alumnos matriculados </title>");
 			out.println("<link rel='stylesheet' type='text/css' href='stylebd.css'>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<p>-------------------------------</p>");
-		//aqui falta un bucle que recorra el objeto
+		out.println("<p>-------------------------------</p>");	
+		for (int i = 0; i<Alumnos.alumnos.size(); i++){
+				out.println("<p> <b>DNI:</b> " + Alumnos.alumnos.get(i).getDni() + " | ");
+				out.print(" <b>Nombre:</b> " + Alumnos.alumnos.get(i).getNombre() + " | ");
+				out.print(" <b>Apellido:</b> " + Alumnos.alumnos.get(i).getApellido() + " | ");
+				//out.print(" <b>Año inscripcion:</b> " + Alumnos.alumnos.get(i).getAnyoInscripcion() + "</p>"); 
+				//out.print(" <b>Ciclo:</b> " + Alumnos.alumnos.get(i).getCiclo() + "</p>");
 				out.println("<p>-------------------------------</p>");
-				out.println("<p> <b>DNI:</b> " + encontrados.getDni() + " | ");
-				out.print(" <b>Nombre:</b> " + encontrados.getNombre() + " | ");
-				out.print(" <b>Nombre:</b> " + encontrados.getApellido() + " | ");
-				out.print(" <b>Ciclo:</b> " + encontrados.getAnyoInscripcion() + "</p>"); 
-				out.print(" <b>Ciclo:</b> " + encontrados.getCiclo() + "</p>");
-				out.println("<p>-------------------------------</p>");
+		}
 		out.println("<a href='index.html'> <button> Volver </button> </a>");
 		out.println("</body>");
 		out.println("</html>");
