@@ -118,6 +118,7 @@ public class Mostrar extends HttpServlet {
 				//out.print(" <b>Ciclo:</b> " + Alumnos.alumnos.get(i).getCiclo() + "</p>");
 				out.println("<p>-------------------------------</p>");
 		}
+		Alumnos.alumnos.clear();
 		out.println("<a href='index.html'> <button> Volver </button> </a>");
 		out.println("</body>");
 		out.println("</html>");
