@@ -51,52 +51,46 @@ public class Mostrar extends HttpServlet {
 			System.out.println("En el catch 1");
 			System.err.println("Error "+ e);
 		} 
+		try {
+			// Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
 
-		String gestion = request.getParameter("gestion");
-		System.out.println(gestion);
-		if (gestion.equals("mostrar_alumnos")) {
-			try {
-				System.out.println("En el try mostrar");
-				// Register JDBC driver
-				Class.forName("com.mysql.jdbc.Driver");
+			// Open a connection
+			con = DriverManager.getConnection(URL_BD,USUARIO,CONTRA);
 
-				// Open a connection
-				con = DriverManager.getConnection(URL_BD,USUARIO,CONTRA);
+			sentencia = con.createStatement();
 
-				sentencia = con.createStatement();
-
-				String sql;		        
-				sql="SELECT * FROM alumnos";
-				ResultSet mostrar = sentencia.executeQuery(sql);
-				int cont = 0;
-				String dni = null;
-				String nombre = null;
-				String apellido = null;
-				Integer anyo = 0;
-				String ciclo = null;
-				while (mostrar.next()) {	
-					dni = mostrar.getString("dni");
-					nombre = mostrar.getString("nombre");
-					apellido = mostrar.getString("apellido");
-					anyo = mostrar.getInt("anyo_inscripcion");
-					ciclo = mostrar.getString("ciclo");
-					Alumno encontrado = new Alumno(dni,nombre,apellido,anyo,ciclo);
-					Alumnos.anyadirAlumno(encontrado);
-					cont++;
-				}
-				
-				if (cont > 0) {
-					response(response);
-				} else {
-					//response(response, "No se encontró alumno");
-				}
-				con.close();
-
-			} catch(ArrayIndexOutOfBoundsException e) {
-				//response(response, "no se encontro el alumno");
-			} catch(Exception e) {
-				e.printStackTrace();
+			String sql;		        
+			sql="SELECT * FROM alumnos";
+			ResultSet mostrar = sentencia.executeQuery(sql);
+			int cont = 0;
+			String dni = null;
+			String nombre = null;
+			String apellido = null;
+			Integer anyo = 0;
+			String ciclo = null;
+			while (mostrar.next()) {	
+				dni = mostrar.getString("dni");
+				nombre = mostrar.getString("nombre");
+				apellido = mostrar.getString("apellido");
+				anyo = mostrar.getInt("anyo_inscripcion");
+				ciclo = mostrar.getString("ciclo");
+				Alumno encontrado = new Alumno(dni,nombre,apellido,anyo,ciclo);
+				Alumnos.anyadirAlumno(encontrado);
+				cont++;
 			}
+			
+			if (cont > 0) {
+				response(response);
+			} else {
+				//response(response, "No se encontró alumno");
+			}
+			con.close();
+
+		} catch(ArrayIndexOutOfBoundsException e) {
+			//response(response, "no se encontro el alumno");
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 	// Mostrar
