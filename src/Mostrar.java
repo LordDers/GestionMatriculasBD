@@ -51,11 +51,7 @@ public class Mostrar extends HttpServlet {
 			System.out.println("En el catch 1");
 			System.err.println("Error "+ e);
 		} 
-
-		String gestion = request.getParameter("gestion");
-		System.out.println(gestion);
 		try {
-			System.out.println("En el try mostrar");
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
 
