@@ -1,3 +1,18 @@
+
+
+
+clases												tablas
+
+Alumno.java			extends persona
+Alumnos.java	
+Asignatura.java	
+Asignaturas.java	extends Asignatura
+Matricula.java		extends Asignatura
+Matriculas.java		extends Matricula
+Persona.java	
+Profesor.java 		extends persona
+
+
 create database matriculasBD;
 use matriculasBD;
 
