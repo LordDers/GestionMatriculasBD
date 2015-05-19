@@ -3,14 +3,14 @@
 
 clases												tablas
 
-Alumno.java			extends persona
+Alumno.java			extends persona					alumno -> persona
 Alumnos.java	
-Asignatura.java	
-Asignaturas.java	extends Asignatura
-Matricula.java		extends Asignatura
-Matriculas.java		extends Matricula
-Persona.java	
-Profesor.java 		extends persona
+Asignatura.java										asignatura
+Asignaturas.java	extends Asignatura				
+Matricula.java		extends Asignatura				matricula -> asignatura
+Matriculas.java		extends Matricula				
+Persona.java										persona
+Profesor.java 		extends persona					profesor -> persona
 
 
 create database matriculasBD;
