@@ -1,26 +1,18 @@
 
-https://github.com/LordDers/java_gestionMatriculas/tree/master/src/com/zubiri/matriculas
-
 clases											tablas
 
-Alumno.java			extends persona				alumnos -> personas
+Alumno.java			extends persona				alumnos -> personas(dni)  -> matriculas()
 Alumnos.java	
-Asignatura.java									asignaturas
+Asignatura.java									asignaturas -> profesor(dni)
 Asignaturas.java	extends Asignatura				
-Matricula.java		extends Asignatura			matriculas -> asignaturas
+Matricula.java		extends Asignatura			matriculas -> asignaturas()
 Matriculas.java		extends Matricula				
 Persona.java									personas
-Profesor.java 		extends persona				profesores -> personas
+Profesor.java 		extends persona				profesores -> personas(dni)
 
 
-create database matriculasBD;
-use matriculasBD;
-
-// persona.java
-	String dni;
-	String nombre;
-	String apellido;
-//
+create database pruebas_matriculasBD;
+use pruebas_matriculasBD;
 
 CREATE TABLE IF NOT EXISTS personas (
 dni VARCHAR(9) NOT NULL,
@@ -29,6 +21,57 @@ apellido VARCHAR(25),
 PRIMARY KEY(dni)
 );
 
+CREATE TABLE IF NOT EXISTS profesores (
+dni VARCHAR(9) NOT NULL,
+titulacion VARCHAR(20),
+departamento VARCHAR(20),
+PRIMARY KEY(dni),
+FOREIGN KEY (dni) REFERENCES personas(dni)
+ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS alumnos (
+dni VARCHAR(9) NOT NULL,
+anyo_inscripcion INTEGER(4),
+ciclo VARCHAR(50),
+PRIMARY KEY(dni),
+FOREIGN KEY (dni) REFERENCES personas(dni)
+ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS asignaturas (
+nombre VARCHAR(20),
+creditos INTEGER(4),
+dni VARCHAR(9) NOT NULL,
+PRIMARY KEY(nombre)
+FOREIGN KEY (dni) REFERENCES profesores(dni)
+ON DELETE CASCADE ON UPDATE CASCADEe
+);
+
+CREATE TABLE IF NOT EXISTS matriculas (
+nombre VARCHAR(20),
+dni VARCHAR(9) NOT NULL,
+anyoMatriculacion INTEGER(4),
+precio DOUBLE(8,3),
+PRIMARY KEY(nombre, dni),
+FOREIGN KEY (nombre) REFERENCES asignaturas(nombre)
+ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (dni) REFERENCES alumnos(dni)
+ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+https://github.com/LordDers/java_gestionMatriculas/tree/master/src/com/zubiri/matriculas
+
+// persona.java
+	String dni;
+	String nombre;
+	String apellido;
+//
+// profesor.java
+	String titulacion;
+	String departamento;
+	int numProfesores;
+//
 //alumno.java
 	//Año en el que se inscribió por primera vez en alguna asignatura
 	int anyoInscripcion = -1;
@@ -37,32 +80,15 @@ PRIMARY KEY(dni)
 	//Matrículas realizadas a lo largo de los años en las distintas asignaturas
 	ArrayList<Matricula> matriculas = null;
 //
-
-CREATE TABLE IF NOT EXISTS alumnos (
-dni VARCHAR(9) NOT NULL,
-anyo_inscripcion INTEGER(4),
-ciclo VARCHAR(50),
-PRIMARY KEY(dni),
-FOREIGN KEY (dni) REFERENCES personas(dni)
-ON DELETE CASCADE
-);
-
-// profesor.java
-	String titulacion;
-	String departamento;
-	int numProfesores;
+//asignaturas java
+	String nombre;
+	int creditos;
+	Profesor profesor;
 //
-
-CREATE TABLE IF NOT EXISTS profesores (
-dni VARCHAR(9) NOT NULL,
-anyo_inscripcion INTEGER(4),
-ciclo VARCHAR(50),
-PRIMARY KEY(dni),
-FOREIGN KEY (dni) REFERENCES personas(dni)
-ON DELETE CASCADE
-);
-
-
+//matriculas java
+	int anyoMatriculacion;
+    double precio;
+//
 
 -----------------------------------------------------------------------------------------
 
