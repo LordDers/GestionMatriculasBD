@@ -1,17 +1,70 @@
 
-
+https://github.com/LordDers/java_gestionMatriculas/tree/master/src/com/zubiri/matriculas
 
 clases											tablas
 
-Alumno.java			extends persona				alumno -> persona
+Alumno.java			extends persona				alumnos -> personas
 Alumnos.java	
-Asignatura.java									asignatura
+Asignatura.java									asignaturas
 Asignaturas.java	extends Asignatura				
-Matricula.java		extends Asignatura			matricula -> asignatura
+Matricula.java		extends Asignatura			matriculas -> asignaturas
 Matriculas.java		extends Matricula				
-Persona.java										        persona
-Profesor.java 		extends persona				profesor -> persona
+Persona.java									personas
+Profesor.java 		extends persona				profesores -> personas
 
+
+create database matriculasBD;
+use matriculasBD;
+
+// persona.java
+	String dni;
+	String nombre;
+	String apellido;
+//
+
+CREATE TABLE IF NOT EXISTS personas (
+dni VARCHAR(9) NOT NULL,
+nombre VARCHAR(20),
+apellido VARCHAR(25),
+PRIMARY KEY(dni)
+);
+
+//alumno.java
+	//Año en el que se inscribió por primera vez en alguna asignatura
+	int anyoInscripcion = -1;
+	//Ciclo que cursa el alumno
+	String ciclo = null;	
+	//Matrículas realizadas a lo largo de los años en las distintas asignaturas
+	ArrayList<Matricula> matriculas = null;
+//
+
+CREATE TABLE IF NOT EXISTS alumnos (
+dni VARCHAR(9) NOT NULL,
+anyo_inscripcion INTEGER(4),
+ciclo VARCHAR(50),
+PRIMARY KEY(dni),
+FOREIGN KEY (dni) REFERENCES personas(dni)
+ON DELETE CASCADE
+);
+
+// profesor.java
+	String titulacion;
+	String departamento;
+	int numProfesores;
+//
+
+CREATE TABLE IF NOT EXISTS profesores (
+dni VARCHAR(9) NOT NULL,
+anyo_inscripcion INTEGER(4),
+ciclo VARCHAR(50),
+PRIMARY KEY(dni),
+FOREIGN KEY (dni) REFERENCES personas(dni)
+ON DELETE CASCADE
+);
+
+
+
+-----------------------------------------------------------------------------------------
 
 create database matriculasBD;
 use matriculasBD;
