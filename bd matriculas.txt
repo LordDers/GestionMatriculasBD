@@ -69,6 +69,16 @@ INSERT INTO `personas`(`dni`, `nombre`, `apellido`) VALUES ([value-1],[value-2],
 INSERT INTO `profesores`(`dni`, `titulacion`, `departamento`) VALUES ([value-1],[value-2],[value-3])
 
 //select
+	//personas
+SELECT *
+FROM personas 
+inner join alumnos on personas.dni=alumnos.dni 
+inner join profesores on personas.dni=profesores.dni
+
+SELECT *
+FROM personas, alumnos, profesores
+where personas.dni=alumnos.dni and personas.dni=profesores.dni
+	
 	//alumno
 		//todos
 SELECT alumnos.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join alumnos on personas.dni=alumnos.dni;
