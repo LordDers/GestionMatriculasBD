@@ -60,6 +60,26 @@ FOREIGN KEY (dni) REFERENCES alumnos(dni)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+//insert into
+	//alumno
+INSERT INTO `personas`(`dni`, `nombre`, `apellido`) VALUES ([value-1],[value-2],[value-3])
+INSERT INTO `alumnos`(`dni`, `anyo_inscripcion`, `ciclo`) VALUES ([value-1],[value-2],[value-3])
+	//profesor
+INSERT INTO `personas`(`dni`, `nombre`, `apellido`) VALUES ([value-1],[value-2],[value-3])
+INSERT INTO `profesores`(`dni`, `titulacion`, `departamento`) VALUES ([value-1],[value-2],[value-3])
+
+//select
+	//alumno
+SELECT alumnos.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join alumnos on personas.dni=alumnos.dni;
+SELECT alumnos.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join alumnos on personas.dni=alumnos.dni;
+	//profesor
+SELECT profesores.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join profesores on personas.dni=alumnos.dni;
+SELECT profesores.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join profesores on personas.dni=alumnos.dni;	
+	
+	
+//update
+
+
 https://github.com/LordDers/java_gestionMatriculas/tree/master/src/com/zubiri/matriculas
 
 // persona.java
