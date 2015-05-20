@@ -73,8 +73,8 @@ INSERT INTO `profesores`(`dni`, `titulacion`, `departamento`) VALUES ([value-1],
 SELECT alumnos.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join alumnos on personas.dni=alumnos.dni;
 SELECT alumnos.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join alumnos on personas.dni=alumnos.dni;
 	//profesor
-SELECT profesores.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join profesores on personas.dni=alumnos.dni;
-SELECT profesores.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join profesores on personas.dni=alumnos.dni;	
+SELECT profesores.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join profesores on personas.dni=profesores.dni;
+SELECT profesores.dni,nombre,apellido,anyo_inscripcion,ciclo FROM personas inner join profesores on personas.dni=profesores.dni;	
 	
 	
 //update
